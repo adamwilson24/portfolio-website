@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08121f"/><stop offset="1" stop-color="#160f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".7" cy=".5" r=".55">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity=".35"/><stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#a5f3fc"/></linearGradient>
+    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+  </defs>
+  <rect width="1600" height="560" fill="url(#bg)"/>
+  <rect width="1600" height="560" fill="url(#glow)"/>
+
+  <text x="262" y="215" font-size="30" font-weight="700" fill="#22d3ee" letter-spacing="8">AI AGENT · ARCHITECTURE</text>
+  <text x="258" y="310" font-size="88" font-weight="900" fill="url(#txt)" letter-spacing="-2">MEMORY</text>
+  <text x="258" y="405" font-size="88" font-weight="900" fill="url(#txt)" letter-spacing="-2">SYSTEM</text>
+
+  <!-- spreadsheet -->
+  <g transform="translate(860 140)">
+    <rect width="230" height="280" rx="18" fill="#0f1c2c" stroke="#1f6f78" stroke-width="3"/>
+    <rect width="230" height="44" rx="18" fill="#0e7490"/>
+    <rect y="26" width="230" height="18" fill="#0e7490"/>
+    <g stroke="#1f3b4d" stroke-width="2">
+      <path d="M0 92H230M0 140H230M0 188H230M0 236H230M77 44V280M153 44V280"/>
+    </g>
+    <rect x="80" y="143" width="70" height="42" fill="#22d3ee" opacity=".35"/>
+    <rect x="92" y="158" width="46" height="10" rx="5" fill="#a5f3fc"/>
+    <g fill="#355a6e"><rect x="14" y="62" width="48" height="10" rx="5"/><rect x="14" y="110" width="40" height="10" rx="5"/><rect x="14" y="158" width="50" height="10" rx="5"/><rect x="14" y="206" width="36" height="10" rx="5"/><rect x="166" y="62" width="46" height="10" rx="5"/><rect x="166" y="206" width="40" height="10" rx="5"/></g>
+  </g>
+
+  <path d="M1100 280 C1150 280 1150 200 1200 200" fill="none" stroke="url(#ln)" stroke-width="4" stroke-dasharray="10 10"/>
+  <path d="M1100 280 C1150 280 1150 360 1200 360" fill="none" stroke="url(#ln)" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- log -->
+  <g transform="translate(1205 140)">
+    <rect width="250" height="120" rx="16" fill="#140f2a" stroke="#6d28d9" stroke-width="3"/>
+    <text x="18" y="30" font-size="16" font-weight="800" fill="#c084fc" letter-spacing="2">HISTORY LOG</text>
+    <g font-family="Menlo, Consolas, monospace" font-size="15" fill="#a5b4fc">
+      <text x="18" y="60">+ row 14 · Officer</text>
+      <text x="18" y="84">~ row 07 · Address</text>
+      <text x="18" y="108" opacity=".6">+ row 31 · Status</text>
+    </g>
+  </g>
+
+  <!-- chat -->
+  <g transform="translate(1205 300)">
+    <rect width="290" height="74" rx="20" fill="#fff"/>
+    <text x="20" y="32" font-size="17" font-weight="700" fill="#111">What was this value in May?</text>
+    <rect x="20" y="46" width="150" height="10" rx="5" fill="#9ca3af"/>
+    <rect x="40" y="90" width="250" height="56" rx="18" fill="url(#ln)"/>
+    <text x="60" y="124" font-size="16" font-weight="700" fill="#fff">Here's what changed, and when</text>
+  </g>
+</svg>

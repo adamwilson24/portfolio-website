@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Wilson — Portfolio</title>
+  <meta name="description" content="Adam Wilson — Information Science @ UW–Madison. Web apps, AI agents, and interface design.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-nav">
+    <nav class="container" aria-label="Main navigation">
+      <button class="brand" type="button" title="Try clicking me..." aria-label="Adam Wilson">Adam Wilson</button>
+      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html" class="nav-cta">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <div class="status-chip"><span class="status-dot"></span>Senior @ UW–Madison · Open to 2027 roles</div>
+        <h1>Hi, I'm Adam <span class="wave">👋</span></h1>
+        <p class="typewriter" aria-live="polite"><span class="typewriter-text"></span><span class="caret" aria-hidden="true"></span></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">View Projects</a>
+          <a class="btn btn-outline" href="about.html">Contact Me</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#latest" aria-label="Scroll to content"></a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span>React</span><span>ASP.NET</span><span class="hl">AI Agents</span><span>UX Design</span><span>SQL</span><span>JavaScript</span><span>Information Architecture</span><span>Product Management</span><span class="hl">Interaction Design</span><span>Ship It</span><span>React</span><span>ASP.NET</span><span class="hl">AI Agents</span><span>UX Design</span><span>SQL</span><span>JavaScript</span><span>Information Architecture</span><span>Product Management</span><span class="hl">Interaction Design</span><span>Ship It</span></div>
+    </div>
+
+    <!-- Latest: Under Armour -->
+    <section class="section" id="latest">
+      <div class="container">
+        <div class="feature" data-reveal>
+          <div>
+            <span class="eyebrow">Latest chapter · Summer 2026</span>
+            <h2>Rookie at <span class="grad-text">Under Armour</span></h2>
+            <p class="role">Intern, Digital Teammate Experience (AI &amp; Automation)</p>
+            <p class="lead">
+              I spent the summer on Under Armour's Digital Teammate Experience team, working
+              across six departments on AI agents, automations, and interfaces. It was a crash course in cross-functional
+              collaboration — and in designing AI agents, system architecture, and interfaces
+              that real teammates rely on.
+            </p>
+            <div class="chip-row">
+              <span class="chip">AI Agent Design</span>
+              <span class="chip">Architecture</span>
+              <span class="chip">Interface Design</span>
+              <span class="chip">Cross-Functional</span>
+            </div>
+          </div>
+          <div class="feature-stack">
+            <div class="mini-card" data-reveal data-delay="0.1">
+              <div class="k">Legal · AI Agent</div>
+              <h4>Change-aware legal assistant</h4>
+              <p>Built an AI agent for the Legal team and engineered a historical change-tracking system into its backend, so its answers account for what has changed over time.</p>
+            </div>
+            <div class="mini-card" data-reveal data-delay="0.2">
+              <div class="k">Ecom · Case Study</div>
+              <h4>Shop the Squad <span class="trophy">🏆 Winner</span></h4>
+              <p>Our Rookie Week case study on capturing the young athlete: a social campaign supporting women athletes, tied to a new ecom page — which I owned.</p>
+            </div>
+            <div class="mini-card" data-reveal data-delay="0.3">
+              <div class="k">Architecture</div>
+              <h4>Specialty spaces &amp; syslogs</h4>
+              <p>Worked on an architecture project mapping specialty spaces and syslog infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Do -->
+    <section class="section what-i-do">
+      <div class="container">
+        <div class="section-head">
+          <h2>What I Do</h2>
+          <p>Hover around — my best work happens where these overlap</p>
+        </div>
+
+        <div class="skills-venn" data-skills-venn>
+          <div class="sv-field">
+            <div class="blob blob-dev" data-set="dev"><span class="blob-label">Development</span></div>
+            <div class="blob blob-design" data-set="design"><span class="blob-label">Design</span></div>
+            <div class="blob blob-comm" data-set="comm"><span class="blob-label">Communication</span></div>
+            <div class="sv-core" data-sets="dev design comm">
+              <span class="sv-core-k">Where I work</span>
+              <span class="sv-core-t">Products people<br>actually use</span>
+            </div>
+          <span class="sk-chip" data-sets="dev" style="--x:17%;--y:22%;--fd:0.00s;--rd:0.90s">React</span>
+          <span class="sk-chip" data-sets="dev" style="--x:11%;--y:35%;--fd:0.37s;--rd:0.95s">AI Agents</span>
+          <span class="sk-chip sk-opt" data-sets="dev" style="--x:15%;--y:48%;--fd:0.74s;--rd:1.00s">ASP.NET · C#</span>
+          <span class="sk-chip sk-opt" data-sets="dev" style="--x:26%;--y:30%;--fd:1.11s;--rd:1.05s">SQL</span>
+          <span class="sk-chip" data-sets="design" style="--x:83%;--y:22%;--fd:1.48s;--rd:1.10s">Figma</span>
+          <span class="sk-chip" data-sets="design" style="--x:88%;--y:35%;--fd:1.85s;--rd:1.15s">UI Design</span>
+          <span class="sk-chip sk-opt" data-sets="design" style="--x:84%;--y:48%;--fd:2.22s;--rd:1.20s">Visual & Brand</span>
+          <span class="sk-chip sk-opt" data-sets="design" style="--x:74%;--y:30%;--fd:2.59s;--rd:1.25s">Adobe CC</span>
+          <span class="sk-chip" data-sets="comm" style="--x:36%;--y:80%;--fd:0.36s;--rd:1.30s">Presenting</span>
+          <span class="sk-chip" data-sets="comm" style="--x:64%;--y:80%;--fd:0.73s;--rd:1.35s">Leadership</span>
+          <span class="sk-chip sk-opt" data-sets="comm" style="--x:50%;--y:87%;--fd:1.10s;--rd:1.40s">Business Writing</span>
+          <span class="sk-chip" data-sets="dev design" style="--x:50%;--y:18%;--fd:1.47s;--rd:1.45s">Prototyping</span>
+          <span class="sk-chip" data-sets="dev design" style="--x:50%;--y:28%;--fd:1.84s;--rd:1.50s">Front-end</span>
+          <span class="sk-chip" data-sets="dev comm" style="--x:34%;--y:58%;--fd:2.21s;--rd:1.55s">Requirements</span>
+          <span class="sk-chip sk-opt" data-sets="dev comm" style="--x:30%;--y:66%;--fd:2.58s;--rd:1.60s">Stakeholder → Solution</span>
+          <span class="sk-chip" data-sets="design comm" style="--x:66%;--y:58%;--fd:0.35s;--rd:1.65s">UX Research</span>
+          <span class="sk-chip sk-opt" data-sets="design comm" style="--x:70%;--y:66%;--fd:0.72s;--rd:1.70s">Storytelling</span>
+          </div>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar" data-reveal data-set="dev">
+            <span class="pillar-dot" style="--c:#22d3ee"></span>
+            <h3>Development</h3>
+            <p>I build it — full-stack apps, AI agents, and the automations and data pipelines behind them.</p>
+          </div>
+          <div class="pillar" data-reveal data-delay="0.12" data-set="design">
+            <span class="pillar-dot" style="--c:#f472b6"></span>
+            <h3>Design</h3>
+            <p>I shape it — interfaces, information architecture, and flows that remove friction.</p>
+          </div>
+          <div class="pillar" data-reveal data-delay="0.24" data-set="comm">
+            <span class="pillar-dot" style="--c:#fbbf24"></span>
+            <h3>Communication</h3>
+            <p>I connect it — turning what stakeholders need into a plan, a demo, and a shipped solution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>My Journey</h2>
+          <p>How I got here</p>
+        </div>
+        <div class="timeline">
+        <div class="timeline-item" data-reveal="left" data-delay="0.00">
+          <div class="timeline-rail"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-card">
+            <div class="year-badge">2023</div>
+            <div class="t">Started First Internship</div>
+            <div class="d">At Kapco Metal Stamping, building internal applications with ASP.NET to enhance warehouse operations.</div>
+          </div>
+        </div>
+        <div class="timeline-item" data-reveal="left" data-delay="0.15">
+          <div class="timeline-rail"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-card">
+            <div class="year-badge">2024</div>
+            <div class="t">Enrolled at UW-Madison</div>
+            <div class="d">Majoring in Information Science, gaining strong technical foundations through coursework and projects.</div>
+          </div>
+        </div>
+        <div class="timeline-item" data-reveal="left" data-delay="0.30">
+          <div class="timeline-rail"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-card">
+            <div class="year-badge">2025</div>
+            <div class="t">Head of Custom Applications</div>
+            <div class="d">Returned to Kapco and stepped up to manage all of its custom applications, improving efficiency and reducing errors.</div>
+          </div>
+        </div>
+        <div class="timeline-item" data-reveal="left" data-delay="0.45">
+          <div class="timeline-rail"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-card">
+            <div class="year-badge">SUMMER 2026</div>
+            <div class="t">Rookie @ Under Armour</div>
+            <div class="d">Interned on the Digital Teammate Experience team — built an AI agent for Legal and led the ecom page for our Rookie Week–winning case study.</div>
+          </div>
+        </div>
+        <div class="timeline-item current" data-reveal="left" data-delay="0.60">
+          <div class="timeline-rail"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+          <div class="timeline-card">
+            <div class="year-badge">FALL 2026</div>
+            <div class="t">Now</div>
+            <div class="d">Senior year at UW–Madison. Building polished products, deepening AI + UX skills, and looking for full-time roles starting 2027.</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact strip -->
+    <section class="contact-strip">
+      <h2>Let's work together</h2>
+      <p>Open to opportunities, collaborations, and good conversations. Feel free to reach out.</p>
+      <div class="link-row">
+        <a class="link-btn" href="https://github.com/adamwilson24" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.56 3.285-1.23 3.285-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a class="link-btn" href="https://linkedin.com/in/adam-wilson24" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <a class="link-btn" href="mailto:adamwilson2015@icloud.com"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>
+        <a class="link-btn" href="resume.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span data-year>2026</span> Adam Wilson — Built with HTML, CSS &amp; JavaScript
+    <span class="hint">psst — try ↑ ↑ ↓ ↓ ← → ← → B A</span>
+  </footer>
+  <script src="js/hero.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

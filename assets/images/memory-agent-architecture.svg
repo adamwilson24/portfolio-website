@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7dd3fc"/></marker>
+  </defs>
+  <rect width="1200" height="560" fill="#0b0f1d"/>
+  <text x="60" y="62" font-size="20" font-weight="800" fill="#22d3ee" letter-spacing="4">HOW THE MEMORY WORKS</text>
+
+  <g font-size="18" font-weight="700" fill="#fff" text-anchor="middle">
+    <!-- row 1: write path -->
+    <g transform="translate(60 100)">
+      <rect width="220" height="110" rx="16" fill="#10263a" stroke="#0e7490" stroke-width="2"/>
+      <text x="110" y="48">Legal saves</text><text x="110" y="74">the spreadsheet</text>
+    </g>
+    <g transform="translate(340 100)">
+      <rect width="220" height="110" rx="16" fill="#10263a" stroke="#0e7490" stroke-width="2"/>
+      <text x="110" y="48">Power Automate</text><text x="110" y="74">flow triggers</text>
+    </g>
+    <g transform="translate(620 100)">
+      <rect width="220" height="110" rx="16" fill="#10263a" stroke="#0e7490" stroke-width="2"/>
+      <text x="110" y="42">Script diffs it</text><text x="110" y="68" font-size="15" fill="#a5f3fc">vs. last snapshot</text>
+    </g>
+    <g transform="translate(900 100)">
+      <rect width="240" height="110" rx="16" fill="#1e1440" stroke="#7c3aed" stroke-width="2"/>
+      <text x="120" y="42">Append-only</text><text x="120" y="68">history log</text>
+      <text x="120" y="92" font-size="13" fill="#c4b5fd" font-weight="600">only what changed</text>
+    </g>
+
+    <!-- row 2: read path -->
+    <g transform="translate(60 330)">
+      <rect width="220" height="110" rx="16" fill="#10263a" stroke="#0e7490" stroke-width="2"/>
+      <text x="110" y="48">Live Excel files</text><text x="110" y="74" font-size="15" fill="#a5f3fc">current values</text>
+    </g>
+    <g transform="translate(450 310)">
+      <rect width="300" height="150" rx="22" fill="url(#g)"/>
+      <text x="150" y="66" font-size="24" font-weight="900">Copilot agent</text>
+      <text x="150" y="96" font-size="15" font-weight="600">reads live files + history log</text>
+    </g>
+    <g transform="translate(900 330)">
+      <rect width="240" height="110" rx="16" fill="#fff"/>
+      <text x="120" y="44" fill="#111">Answers in seconds</text>
+      <text x="120" y="72" font-size="14" fill="#555" font-weight="600">“What is it now?”</text>
+      <text x="120" y="94" font-size="14" fill="#555" font-weight="600">“What was it before?”</text>
+    </g>
+  </g>
+
+  <g stroke="#7dd3fc" stroke-width="3" fill="none" marker-end="url(#a)">
+    <path d="M282 155h54"/><path d="M562 155h54"/><path d="M842 155h54"/>
+    <path d="M282 385h164"/>
+    <path d="M1020 212 C1020 270 860 270 760 320"/>
+    <path d="M752 385h144"/>
+  </g>
+
+  <text x="600" y="520" font-size="16" font-weight="700" fill="#9ca3af" text-anchor="middle">Legal keeps working in Excel exactly as before · the pattern is reusable for any department tracking changing spreadsheet data</text>
+</svg>

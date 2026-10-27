@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Adam Wilson</title>
+  <meta name="description" content="Projects by Adam Wilson: Project Pixio, Mathware, Guidance Guru, and more.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-nav">
+    <nav class="container" aria-label="Main navigation">
+      <button class="brand" type="button" title="Try clicking me..." aria-label="Adam Wilson">Adam Wilson</button>
+      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html" class="nav-cta">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="page-title" data-reveal>
+        <h1>My Projects</h1>
+        <p>Click any project to explore it in detail</p>
+      </div>
+      <div class="grid-3" id="project-grid"></div>
+    </div>
+    <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    © <span data-year>2026</span> Adam Wilson — Built with HTML, CSS &amp; JavaScript
+    <span class="hint">psst — try ↑ ↑ ↓ ↓ ← → ← → B A</span>
+  </footer>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

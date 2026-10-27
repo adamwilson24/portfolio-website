@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+  </defs>
+  <rect width="1200" height="520" fill="#0f0f1f"/>
+
+  <text x="60" y="64" font-size="20" font-weight="800" fill="#9ca3af" letter-spacing="4">BEFORE · 6 STEPS, MOST SHOPPERS DROP OFF</text>
+  <g font-size="17" font-weight="700" fill="#e5e7eb" text-anchor="middle">
+    <g transform="translate(60 92)">
+      <rect width="160" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2"/><text x="80" y="47">See the post</text>
+    </g>
+    <g transform="translate(250 92)" opacity=".92">
+      <rect width="160" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2"/><text x="80" y="47">Leave the app</text>
+    </g>
+    <g transform="translate(440 92)" opacity=".8">
+      <rect width="160" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2"/><text x="80" y="47">Open UA.com</text>
+    </g>
+    <g transform="translate(630 92)" opacity=".66">
+      <rect width="160" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2"/><text x="80" y="47">Search</text>
+    </g>
+    <g transform="translate(820 92)" opacity=".5">
+      <rect width="160" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2"/><text x="80" y="47">Guess the product</text>
+    </g>
+    <g transform="translate(1010 92)" opacity=".32">
+      <rect width="130" height="80" rx="14" fill="#1a1a2e" stroke="#3b3b5c" stroke-width="2" stroke-dasharray="6 6"/><text x="65" y="47">Buy?</text>
+    </g>
+  </g>
+  <g stroke="#4b4b6b" stroke-width="3" fill="none">
+    <path d="M222 132h26M412 132h26M602 132h26M792 132h26M982 132h26"/>
+  </g>
+
+  <text x="60" y="270" font-size="20" font-weight="800" fill="#f472b6" letter-spacing="4">AFTER · SHOP THE SQUAD, ONE PLACE</text>
+  <g transform="translate(60 300)">
+    <rect width="1080" height="180" rx="22" fill="#1a1a2e" stroke="url(#g)" stroke-width="3"/>
+    <rect x="28" y="28" width="124" height="124" rx="16" fill="url(#g)"/>
+    <text x="90" y="98" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Athlete post</text>
+    <path d="M168 90h40" stroke="#f472b6" stroke-width="3"/>
+    <g transform="translate(220 28)">
+      <rect width="250" height="124" rx="16" fill="#fff"/>
+      <rect x="16" y="16" width="56" height="56" rx="10" fill="#e5e7eb"/>
+      <rect x="86" y="22" width="120" height="12" rx="6" fill="#111"/>
+      <rect x="86" y="44" width="70" height="10" rx="5" fill="#9ca3af"/>
+      <rect x="16" y="86" width="218" height="26" rx="13" fill="#111"/>
+      <text x="125" y="104" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">ADD TO BAG</text>
+    </g>
+    <text x="345" y="174" font-size="14" font-weight="700" fill="#9ca3af" text-anchor="middle">Products in the post, right there</text>
+    <g font-size="20" font-weight="800" fill="#fff">
+      <g transform="translate(540 38)"><rect width="230" height="46" rx="23" fill="#2a1d4a" stroke="#7c3aed" stroke-width="2"/><text x="115" y="30" text-anchor="middle">♡  Save posts</text></g>
+      <g transform="translate(790 38)"><rect width="260" height="46" rx="23" fill="#2a1d4a" stroke="#7c3aed" stroke-width="2"/><text x="130" y="30" text-anchor="middle">⚑  Filter by sport</text></g>
+      <g transform="translate(540 100)"><rect width="510" height="46" rx="23" fill="url(#g)"/><text x="255" y="30" text-anchor="middle">Add to bag without leaving the page</text></g>
+    </g>
+  </g>
+</svg>
