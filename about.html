@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head><body>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -59,56 +59,97 @@
             <div class="portrait-frame">
               <img src="assets/images/headshot-portrait.jpg" alt="Adam Wilson, Information Science student at UW–Madison">
               <div class="portrait-shine" aria-hidden="true"></div>
-              <div class="portrait-caption">
-                <span>Adam Wilson</span>
-                <small>Info Sci @ UW–Madison</small>
-              </div>
             </div>
-            <span class="sticker s1">⚡ Dev × Design</span>
-            <span class="sticker s2">🤖 AI agents</span>
-            <span class="sticker s3">💬 Communicator</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Numbers -->
-    <section class="stats-band">
-      <div class="container stats-grid">
-        <div class="stat" data-reveal><span class="stat-n" data-count="6">0</span><span class="stat-l">departments partnered with at Under Armour</span></div>
-        <div class="stat" data-reveal data-delay="0.1"><span class="stat-n" data-count="10" data-suffix="+">0</span><span class="stat-l">apps shipped at Kapco</span></div>
-        <div class="stat" data-reveal data-delay="0.2"><span class="stat-n" data-count="500" data-suffix="+">0</span><span class="stat-l">employees using my apps</span></div>
-        <div class="stat" data-reveal data-delay="0.3"><span class="stat-n" data-count="3">0</span><span class="stat-l">years to my degree</span></div>
+    <!-- Life outside work -->
+    <section class="life" data-life>
+      <div class="container">
+        <div class="life-head" data-reveal>
+          <h2>Outside of work</h2>
+          <p>A few photos so you know who you'd actually be working with.</p>
+        </div>
+
+        <div class="chapter" data-tone="race">
+          <div class="chapter-text">
+            <span class="chapter-num">01</span>
+            <h3>I'm an endurance athlete</h3>
+            <p>Half marathons and an Ironman 70.3. Getting to the finish line takes a plan and being consistent every day.</p>
+          </div>
+          <div class="pile pile-race">
+            <figure class="print p1" tabindex="0" role="button" aria-label="Enlarge photo: Ironman 70.3 Finish">
+              <img src="assets/images/life/ironman-finish.jpg" alt="Adam crossing the Ironman 70.3 Wisconsin finish line in Madison" loading="lazy">
+              <figcaption>Ironman 70.3 Finish</figcaption>
+            </figure>
+            <figure class="print p2" tabindex="0" role="button" aria-label="Enlarge photo: Half Marathon">
+              <img src="assets/images/life/half-marathon.jpg" alt="Adam running a half marathon" loading="lazy">
+              <figcaption>Half Marathon</figcaption>
+            </figure>
+            <figure class="print p3" tabindex="0" role="button" aria-label="Enlarge photo: Ironman 70.3 Bike Leg">
+              <img src="assets/images/life/ironman-bike.jpg" alt="Adam riding the bike leg of Ironman 70.3 Wisconsin" loading="lazy">
+              <figcaption>Ironman 70.3 Bike Leg</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="chapter flip" data-tone="trail">
+          <div class="chapter-text">
+            <span class="chapter-num">02</span>
+            <h3>I love the outdoors</h3>
+            <p>I'm always up for exploring somewhere new, whether that's a coastal trail or a mountain summit.</p>
+          </div>
+          <div class="pile pile-travel">
+            <figure class="print p1" tabindex="0" role="button" aria-label="Enlarge photo: Cinque Terre, Italy">
+              <img src="assets/images/life/cinque-terre.jpg" alt="Adam on a hiking trail above the sea in Cinque Terre, Italy" loading="lazy">
+              <figcaption>Cinque Terre, Italy</figcaption>
+            </figure>
+            <figure class="print p2" tabindex="0" role="button" aria-label="Enlarge photo: Grindelwald, Switzerland">
+              <img src="assets/images/life/grindelwald.jpg" alt="Adam walking a snowy trail toward a mountain in Grindelwald, Switzerland" loading="lazy">
+              <figcaption>Grindelwald, Switzerland</figcaption>
+            </figure>
+            <figure class="print p3" tabindex="0" role="button" aria-label="Enlarge photo: The Dolomites">
+              <img src="assets/images/life/dolomites-village.jpg" alt="Adam above a mountain village in the Dolomites" loading="lazy">
+              <figcaption>The Dolomites</figcaption>
+            </figure>
+            <figure class="print p4" tabindex="0" role="button" aria-label="Enlarge photo: Summit of Mount Resciesa">
+              <img src="assets/images/life/resciesa-summit.jpg" alt="Adam with arms raised at the snowy summit of Mount Resciesa" loading="lazy">
+              <figcaption>Summit of Mount Resciesa</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="chapter" data-tone="home">
+          <div class="chapter-text">
+            <span class="chapter-num">03</span>
+            <h3>Wisconsin, through and through</h3>
+            <p>From Cedarburg to UW–Madison, Wisconsin is home. Badgers games, time on the water, and a good sunset.</p>
+          </div>
+          <div class="pile pile-home">
+            <figure class="print p1" tabindex="0" role="button" aria-label="Enlarge photo: Camp Randall">
+              <img src="assets/images/life/camp-randall.jpg" alt="Adam and friends on the field at Camp Randall Stadium after a Badgers game" loading="lazy">
+              <figcaption>Camp Randall</figcaption>
+            </figure>
+            <figure class="print p2" tabindex="0" role="button" aria-label="Enlarge photo: Door County, WI">
+              <img src="assets/images/life/sunset.jpg" alt="Adam in a Wisconsin Badgers shirt at sunset in Door County, Wisconsin" loading="lazy">
+              <figcaption>Door County, WI</figcaption>
+            </figure>
+            <figure class="print p3" tabindex="0" role="button" aria-label="Enlarge photo: A Good Catch">
+              <img src="assets/images/life/fishing.jpg" alt="Adam holding a largemouth bass on a dock" loading="lazy">
+              <figcaption>A Good Catch</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Story -->
-    <section class="section">
-      <div class="container story-grid">
-        <div class="story-side">
-          <span class="eyebrow">My story</span>
-          <h2>From warehouse apps to AI agents</h2>
-        </div>
-        <div class="story-body">
-          <div class="story-step" data-reveal>
-            <span class="story-k">The start</span>
-            <p>I started building software in high school — winning the Congressional App Challenge — and in 2023 joined Kapco Inc. as a software developer intern, shipping ASP.NET and SQL apps that ran real warehouse operations.</p>
-          </div>
-          <div class="story-step" data-reveal>
-            <span class="story-k">Leveling up</span>
-            <p>By 2025 I was Head of Custom Applications, owning the apps used by 500+ employees, modernizing legacy software, and sitting down with leaders to turn their needs into tools.</p>
-          </div>
-          <div class="story-step" data-reveal>
-            <span class="story-k">This summer</span>
-            <p>At Under Armour I worked across six departments on AI agents, automations, system architecture, and interface design — including a memory system for Legal's AI agent and the ecom page for our Rookie Week–winning case study.</p>
-          </div>
-          <div class="story-step" data-reveal>
-            <span class="story-k">What's next</span>
-            <p>I'm looking for a full-time role where I can keep doing all three — build, design, and communicate. If that sounds like your team, I'd love to talk.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+      <button class="lightbox-close" type="button" aria-label="Close photo">×</button>
+      <figure><img alt=""><figcaption></figcaption></figure>
+    </div>
 
     <!-- Experience -->
     <section class="section section-alt">
@@ -197,7 +238,6 @@
 
   <footer class="site-footer">
     © <span data-year>2026</span> Adam Wilson — Built with HTML, CSS &amp; JavaScript
-    <span class="hint">psst — try ↑ ↑ ↓ ↓ ← → ← → B A</span>
   </footer>
   <script src="js/main.js"></script>
 </body>

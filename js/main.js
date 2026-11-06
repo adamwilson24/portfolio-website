@@ -89,6 +89,7 @@
 
   /* ---------- Cursor spotlight on cards ---------- */
   document.addEventListener("pointermove", (e) => {
+    if (document.body.classList.contains("modal-open")) return;
     const card = e.target.closest && e.target.closest(".spotlight");
     if (!card) return;
     const r = card.getBoundingClientRect();
@@ -186,50 +187,146 @@
   }
 })();
 
-/* ---------- About page: portrait tilt + stat count-up ---------- */
+
+/* ---------- About page: click a photo to enlarge ---------- */
 (function () {
   "use strict";
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const box = document.getElementById("lightbox");
+  if (!box) return;
+  const img = box.querySelector("img");
+  const cap = box.querySelector("figcaption");
+  let last = null;
 
-  const card = document.querySelector("[data-tilt]");
-  if (card && !reduce) {
-    const wrap = card.parentElement;
-    wrap.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width;
-      const y = (e.clientY - r.top) / r.height;
-      card.classList.add("tilting");
-      card.style.transform = `rotateY(${(x - 0.5) * 16}deg) rotateX(${(0.5 - y) * 16}deg)`;
-      card.style.setProperty("--sx", x * 100 + "%");
-      card.style.setProperty("--sy", y * 100 + "%");
-    });
-    wrap.addEventListener("pointerleave", () => {
-      card.style.transform = "";
-      card.classList.remove("tilting");
-    });
+  function open(print) {
+    last = print;
+    const src = print.querySelector("img");
+    img.src = src.src;
+    img.alt = src.alt;
+    cap.textContent = print.querySelector("figcaption").textContent;
+    box.hidden = false;
+    document.body.classList.add("modal-open");
+    box.querySelector(".lightbox-close").focus();
+  }
+  function close() {
+    box.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (last) last.focus();
   }
 
-  const nums = document.querySelectorAll("[data-count]");
-  if (!nums.length) return;
-  const run = (el) => {
-    const end = Number(el.dataset.count);
-    const suffix = el.dataset.suffix || "";
-    if (reduce) { el.textContent = end + suffix; return; }
-    const dur = 1400;
-    let start = null;
-    const step = (ts) => {
-      if (start === null) start = ts;
-      const t = Math.min((ts - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(end * eased) + (t === 1 ? suffix : "");
-      if (t < 1) requestAnimationFrame(step);
+  document.querySelectorAll(".pile .print").forEach((p) => {
+    p.addEventListener("click", () => open(p));
+    p.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(p); }
+    });
+  });
+  box.addEventListener("click", (e) => { if (e.target === box || e.target.closest(".lightbox-close")) close(); });
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) close(); });
+})();
+
+/* ---------- About page: headshot tilts toward the cursor ---------- */
+(function () {
+  "use strict";
+  const card = document.querySelector("[data-tilt]");
+  if (!card || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const wrap = card.parentElement;
+  wrap.addEventListener("pointermove", (e) => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    card.classList.add("tilting");
+    card.style.transform = `rotateY(${(x - 0.5) * 16}deg) rotateX(${(0.5 - y) * 16}deg)`;
+    card.style.setProperty("--sx", x * 100 + "%");
+    card.style.setProperty("--sy", y * 100 + "%");
+  });
+  wrap.addEventListener("pointerleave", () => {
+    card.style.transform = "";
+    card.classList.remove("tilting");
+  });
+})();
+
+/* ---------- About page: sections glow and photos deal in on arrival ---------- */
+(function () {
+  "use strict";
+  const life = document.querySelector("[data-life]");
+  if (!life) return;
+  const chapters = life.querySelectorAll(".chapter");
+  if (!("IntersectionObserver" in window)) {
+    chapters.forEach((c) => c.classList.add("in-view", "dealt"));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in-view");
+      // after the deal-in finishes, drop the stagger so hovers respond instantly
+      setTimeout(() => e.target.classList.add("dealt"), 1300);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.25 });
+  chapters.forEach((c) => io.observe(c));
+})();
+
+/* ---------- Home: Under Armour photo carousel ---------- */
+(function () {
+  "use strict";
+  document.querySelectorAll("[data-carousel]").forEach((root) => {
+    const track = root.querySelector(".uc-track");
+    const slides = [...root.querySelectorAll(".uc-slide")];
+    const dots = [...root.querySelectorAll(".uc-dot")];
+    const caption = root.querySelector(".uc-caption");
+    const count = root.querySelector(".uc-count");
+    const viewport = root.querySelector(".uc-viewport");
+    let i = 0;
+
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(${-i * 100}%)`;
+      slides.forEach((s, k) => {
+        s.classList.toggle("active", k === i);
+        s.setAttribute("aria-hidden", String(k !== i));
+      });
+      dots.forEach((d, k) => d.setAttribute("aria-current", String(k === i)));
+      count.textContent = `${i + 1} / ${slides.length}`;
+      caption.textContent = slides[i].dataset.caption;
+      caption.style.animation = "none"; void caption.offsetWidth; caption.style.animation = "";
+      // warm up the next photo
+      const next = slides[(i + 1) % slides.length].querySelector("img");
+      if (next.loading === "lazy") next.loading = "eager";
+    }
+
+    root.querySelector(".uc-prev").addEventListener("click", () => go(i - 1));
+    root.querySelector(".uc-next").addEventListener("click", () => go(i + 1));
+    dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(i - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(i + 1); }
+    });
+
+    // swipe / drag
+    let startX = null, dx = 0;
+    viewport.addEventListener("pointerdown", (e) => {
+      if (e.target.closest(".uc-btn")) return;
+      startX = e.clientX; dx = 0;
+      track.classList.add("dragging");
+      viewport.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener("pointermove", (e) => {
+      if (startX === null) return;
+      dx = e.clientX - startX;
+      track.style.transform = `translateX(calc(${-i * 100}% + ${dx}px))`;
+    });
+    const end = () => {
+      if (startX === null) return;
+      track.classList.remove("dragging");
+      const w = viewport.offsetWidth;
+      if (Math.abs(dx) > w * 0.15) go(i + (dx < 0 ? 1 : -1));
+      else go(i);
+      startX = null;
     };
-    requestAnimationFrame(step);
-  };
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
-    }, { threshold: 0.6 });
-    nums.forEach((n) => io.observe(n));
-  } else nums.forEach(run);
+    viewport.addEventListener("dragstart", (e) => e.preventDefault());
+    viewport.addEventListener("pointerup", end);
+    viewport.addEventListener("pointercancel", end);
+
+    go(0);
+  });
 })();

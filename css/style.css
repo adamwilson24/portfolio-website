@@ -706,8 +706,7 @@ h1, h2, h3, h4, h5 { font-family: var(--display); font-weight: 700; margin: 0 0 
   flex-wrap: wrap;
 }
 .project-tags span {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.62);
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.7rem;
   font-weight: 600;
@@ -1398,7 +1397,6 @@ body.modal-open { overflow: hidden; }
 }
 .portrait.tilting { animation: none; }
 @keyframes portraitFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
-
 .portrait-glow {
   position: absolute;
   inset: 8% -6% -6% 8%;
@@ -1433,81 +1431,6 @@ body.modal-open { overflow: hidden; }
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
-.portrait-caption {
-  position: absolute;
-  left: 14px; right: 14px; bottom: 14px;
-  display: flex; flex-direction: column;
-  padding: 0.7rem 1rem;
-  border-radius: 16px;
-  background: rgba(10,10,26,0.62);
-  border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(8px);
-}
-.portrait-caption span { font-family: var(--display); font-weight: 700; color: #fff; font-size: 1.05rem; }
-.portrait-caption small { color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 600; }
-
-.sticker {
-  position: absolute;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(15,15,31,0.9);
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(6px);
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
-  transform: translateZ(50px);
-  animation: floaty 5s ease-in-out infinite;
-}
-.sticker.s1 { top: 12%; left: -14%; border-color: rgba(192,132,252,0.5); }
-.sticker.s2 { top: 42%; right: -16%; border-color: rgba(34,211,238,0.5); animation-delay: -1.6s; }
-.sticker.s3 { bottom: 24%; left: -12%; border-color: rgba(251,191,36,0.5); animation-delay: -3.2s; }
-@media (max-width: 480px) {
-  .sticker.s1 { left: -4%; } .sticker.s2 { right: -4%; } .sticker.s3 { left: -4%; }
-}
-
-/* Stats band */
-.stats-band {
-  background: var(--bg-deep);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 2.75rem 0;
-}
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center; }
-@media (max-width: 767px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-.stat-n {
-  display: block;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 5vw, 3rem);
-  line-height: 1.1;
-  background: var(--grad-3);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.stat-l { display: block; color: var(--muted); font-size: 0.88rem; margin-top: 0.35rem; line-height: 1.4; }
-
-/* Story */
-.story-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; }
-@media (max-width: 860px) { .story-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
-.story-side { position: sticky; top: calc(var(--nav-h) + 2rem); }
-@media (max-width: 860px) { .story-side { position: static; } }
-.story-side h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.5rem); }
-.story-body { position: relative; padding-left: 1.75rem; border-left: 2px solid rgba(124,58,237,0.25); }
-.story-step { position: relative; margin-bottom: 2.25rem; }
-.story-step:last-child { margin-bottom: 0; }
-.story-step::before {
-  content: "";
-  position: absolute;
-  left: calc(-1.75rem - 7px); top: 0.35rem;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--grad);
-  box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgba(168,85,247,0.7);
-}
-.story-k { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.4rem; }
-.story-step p { color: rgba(255,255,255,0.7); line-height: 1.85; margin: 0; font-size: 1.02rem; }
 
 /* Experience accordion */
 .xp-list { display: grid; gap: 1rem; }
@@ -1587,3 +1510,472 @@ body.modal-open { overflow: hidden; }
   .sv-core-t { font-size: 0.66rem; }
   .sk-chip { font-size: 0.6rem; }
 }
+
+/* =========================================================
+   About — photo prints & "Outside of work"
+   ========================================================= */
+
+.print {
+  margin: 0;
+  background: #f5f2ea;
+  padding: 10px 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.3);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
+  position: relative;
+}
+.print img { width: 100%; display: block; border-radius: 2px; }
+.print figcaption {
+  font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2a2438;
+  text-align: center;
+  padding: 0.35rem 0.5rem 0.55rem;
+  line-height: 1.2;
+}
+
+
+.life { padding: 40px 0 100px; }
+.life-head { max-width: 640px; margin-bottom: 4rem; }
+.life-head h2 { color: #fff; font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 0.5rem; }
+.life-head p { color: rgba(255,255,255,0.55); font-size: 1.05rem; margin: 0; }
+
+.chapter {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+.chapter:last-child { margin-bottom: 0; }
+.chapter.flip { grid-template-columns: 1.25fr 1fr; }
+.chapter.flip .chapter-text { order: 2; }
+@media (max-width: 860px) {
+  .chapter { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 5rem; }
+  .chapter.flip { grid-template-columns: 1fr; }
+  .chapter.flip .chapter-text { order: 0; }
+}
+
+.chapter-num {
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--purple);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.chapter-text h3 { color: #fff; font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin-bottom: 1rem; }
+.chapter-text p { color: rgba(255,255,255,0.68); font-size: 1.05rem; line-height: 1.85; margin: 0; max-width: 460px; }
+
+/* piles of prints */
+.pile { position: relative; }
+.pile .print { cursor: zoom-in; }
+.pile .print:hover, .pile .print:focus-visible {
+  --r: 0deg;
+  z-index: 5;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.55), 0 0 0 2px rgba(168,85,247,0.6);
+  outline: none;
+}
+.pile .print:hover { transform: rotate(0deg); }
+
+/* Overlapping piles: neighbours overlap at the sides, lower prints tuck under the
+   upper ones' bottom border so captions stay readable. Hover lifts one to the front. */
+.pile-race { height: 790px; }
+.pile-race .p1 { --r: -4deg; left: 0;   top: 0;     width: 48%; z-index: 2; }
+.pile-race .p2 { --r: 5deg;  left: 45%; top: 56px;  width: 44%; z-index: 3; }
+.pile-race .p3 { --r: -2deg; left: 20%; top: 392px; width: 46%; z-index: 4; }
+
+.pile-travel { height: 700px; }
+.pile-travel .p1 { --r: -3deg; left: 0;   top: 0;     width: 58%; z-index: 2; }
+.pile-travel .p2 { --r: 4deg;  left: 51%; top: 26px;  width: 41%; z-index: 3; }
+.pile-travel .p3 { --r: 3deg;  left: 3%;  top: 284px; width: 54%; z-index: 4; }
+.pile-travel .p4 { --r: -5deg; left: 50%; top: 384px; width: 42%; z-index: 5; }
+
+.pile-home { height: 660px; }
+.pile-home .p1 { --r: -3deg; left: 0;   top: 0;     width: 62%; z-index: 2; }
+.pile-home .p2 { --r: 5deg;  left: 55%; top: 38px;  width: 40%; z-index: 3; }
+.pile-home .p3 { --r: -4deg; left: 17%; top: 282px; width: 40%; z-index: 4; }
+
+.pile .print { position: absolute; }
+
+@media (max-width: 860px) {
+  .pile-race, .pile-travel, .pile-home { height: auto; display: grid; gap: 1.75rem; }
+  .pile .print { position: relative; left: auto; top: auto; width: 88%; }
+  .pile .print:nth-child(even) { justify-self: end; }
+  .print figcaption { font-size: 1.2rem; }
+}
+
+/* ---------- "Outside of work": glows + deal-in ---------- */
+.life { position: relative; overflow: hidden; }
+.life > .container { position: relative; z-index: 1; }
+
+/* ambient colour behind each chapter */
+.chapter { position: relative; }
+.chapter::before {
+  content: "";
+  position: absolute;
+  inset: -12% -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, var(--tone), transparent);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1.2s ease, transform 1.4s ease;
+}
+.chapter[data-tone="race"]  { --tone: rgba(236, 72, 153, 0.13); }
+.chapter[data-tone="trail"] { --tone: rgba(6, 182, 212, 0.13); }
+.chapter[data-tone="home"]  { --tone: rgba(239, 68, 68, 0.13); }
+.chapter.in-view::before { opacity: 1; transform: none; }
+
+/* text slides in, prints get "dealt" onto the table */
+.chapter-text { opacity: 0; translate: 0 30px; transition: opacity 0.7s ease, translate 0.7s ease; }
+.chapter.in-view .chapter-text { opacity: 1; translate: 0 0; }
+.chapter-num { transition: color 0.4s ease, text-shadow 0.4s ease; }
+.chapter.in-view .chapter-num { text-shadow: 0 0 14px rgba(168,85,247,0.8); }
+
+.pile .print {
+  opacity: 0;
+  translate: 0 90px;
+  scale: 0.85;
+  transition: opacity 0.6s ease, translate 0.8s cubic-bezier(.2,.9,.3,1.15), scale 0.8s cubic-bezier(.2,.9,.3,1.15),
+              transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
+}
+.pile .print:nth-child(2) { transition-delay: 0.12s, 0.12s, 0.12s, 0s, 0s; }
+.pile .print:nth-child(3) { transition-delay: 0.24s, 0.24s, 0.24s, 0s, 0s; }
+.pile .print:nth-child(4) { transition-delay: 0.36s, 0.36s, 0.36s, 0s, 0s; }
+.chapter.in-view .pile .print { opacity: 1; translate: 0 0; scale: 1; }
+.chapter.in-view .pile .print:hover,
+.chapter.in-view .pile .print:focus-visible { scale: 1.04; }
+
+/* while hovering one print, push the rest back a little */
+.pile:hover .print:not(:hover) { filter: brightness(0.7) saturate(0.85); }
+.pile .print { transition-property: opacity, translate, scale, transform, box-shadow, filter; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-text, .pile .print { opacity: 1; translate: none; scale: none; }
+}
+
+/* lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5,5,12,0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease;
+}
+.lightbox[hidden] { display: none; }
+.lightbox figure { margin: 0; max-width: min(1000px, 100%); animation: slideUp 0.3s ease; }
+.lightbox img { max-width: 100%; max-height: 80vh; border-radius: 6px; display: block; margin: 0 auto; }
+.lightbox figcaption {
+  font-family: "Caveat", "Segoe Print", cursive;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.lightbox-close:hover { transform: rotate(90deg); background: rgba(124,58,237,0.7); }
+.chapter.dealt .pile .print { transition-delay: 0s !important; }
+
+/* ---------- Project modal: gallery sections + zoom ---------- */
+.zoomable {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.zoomable:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+
+.gal-section { margin-bottom: 2.25rem; }
+.gal-section:last-child { margin-bottom: 0; }
+.gal-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.78rem !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink) !important;
+  margin-bottom: 0.9rem !important;
+}
+.gal-section h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* show screenshots whole, not cropped */
+.gal-section .preview-grid { align-items: start; }
+.gal-section .preview-grid img { height: auto; object-fit: contain; background: #0b0b16; }
+.gal-section .preview-grid figure:hover img { transform: none; }
+.gal-section .preview-grid figure { transition: transform 0.3s ease; }
+.gal-section .preview-grid figure:hover { transform: translateY(-3px); }
+.gal-section .preview-grid figcaption {
+  position: static;
+  background: none;
+  padding: 0.55rem 0.1rem 0;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+.gal-section figure.light .zoomable { background: #fff; padding: 8px; }
+.gal-section figure.light img { background: #fff; }
+.preview-grid figure.wide { grid-column: 1 / -1; }
+
+.preview-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 700px) { .preview-grid.cols-4 { grid-template-columns: repeat(2, 1fr); } }
+
+/* the team */
+.gal-team .preview-grid {
+  grid-template-columns: minmax(0, 300px) 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+.gal-team .preview-grid figure { transform: rotate(-2deg); }
+.gal-team .preview-grid figure:hover { transform: rotate(0) translateY(-3px); }
+.gal-team .zoomable { background: #f5f2ea; padding: 8px 8px 0; border-radius: 6px; }
+.gal-team .preview-grid img { aspect-ratio: 3 / 4; object-fit: cover; background: none; border-radius: 3px; }
+.gal-team .preview-grid figcaption { background: #f5f2ea; color: #2a2438; text-align: center; padding: 0.4rem 0.5rem 0.6rem; border-radius: 0 0 6px 6px; margin-top: -2px; }
+.gal-note { color: rgba(255,255,255,0.75); line-height: 1.8; margin: 0; font-size: 1rem; }
+@media (max-width: 600px) { .gal-team .preview-grid { grid-template-columns: 1fr; } .gal-team .preview-grid figure { max-width: 300px; } }
+
+/* full-size image view (above the modal) */
+.zoom-view {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(5,5,12,0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.2s ease;
+  cursor: zoom-out;
+}
+.zoom-view[hidden] { display: none; }
+.zoom-view figure { margin: 0; max-width: min(1400px, 100%); }
+.zoom-view img { max-width: 100%; max-height: 82vh; display: block; margin: 0 auto; border-radius: 8px; background: #fff; }
+.zoom-view figcaption { color: rgba(255,255,255,0.8); text-align: center; margin-top: 0.75rem; font-weight: 600; }
+
+/* ---------- Home: Under Armour photo carousel ---------- */
+.feature-cards {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 860px) { .feature-cards { grid-template-columns: 1fr; } }
+.feature-cards .mini-card:hover { transform: translateY(-4px); }
+.feature-link {
+  grid-column: 1 / -1;
+  justify-self: start;
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: -0.5rem;
+}
+.feature-link span { display: inline-block; transition: transform 0.2s ease; }
+.feature-link:hover span { transform: translateX(5px); }
+
+.ua-carousel { min-width: 0; outline: none; }
+.ua-carousel:focus-visible .uc-viewport { box-shadow: 0 0 0 2px var(--purple); }
+.uc-viewport {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+  touch-action: pan-y;
+}
+.uc-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(.2,.8,.2,1);
+}
+.uc-track.dragging { transition: none; }
+.uc-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+/* blurred copy fills the frame so tall and wide photos both show in full */
+.uc-bg {
+  position: absolute;
+  inset: -30px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(26px) brightness(0.45) saturate(1.2);
+}
+.uc-slide img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  transform: scale(1.04);
+  transition: transform 1.2s ease;
+}
+.uc-slide.active img { transform: scale(1); }
+
+.uc-btn {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(10,10,26,0.6);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+.uc-btn:hover { opacity: 1; background: var(--violet); transform: scale(1.08); }
+.uc-prev { left: 12px; }
+.uc-next { right: 12px; }
+.uc-count {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 2;
+  background: rgba(10,10,26,0.65);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.uc-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+.uc-caption { margin: 0; color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.92rem; min-height: 1.4em; animation: fadeIn 0.4s ease; }
+.uc-dots { display: flex; gap: 6px; flex-shrink: 0; }
+.uc-dot {
+  width: 8px; height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.uc-dot[aria-current="true"] { width: 24px; background: var(--grad); }
+.uc-slide.fill img { object-fit: cover; object-position: var(--pos, center); }
+
+/* =========================================================
+   Project modal — performance / no-glitch overrides
+   Live backdrop blurs and hover transforms behind a long scrolling
+   gallery caused tearing while scrolling. Keep the modal flat and cheap.
+   ========================================================= */
+.modal-backdrop {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(6, 6, 14, 0.94);
+}
+.modal-panel {
+  animation: fadeIn 0.2s ease;
+  overscroll-behavior: contain;
+}
+.modal-panel .modal-tags span,
+.modal-panel .video-note,
+.modal-panel .modal-close {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.modal-panel .modal-tags span { background: rgba(10, 10, 26, 0.6); }
+
+/* gallery: no movement, just a subtle outline on hover */
+.modal-panel .preview-grid figure,
+.modal-panel .preview-grid figure:hover,
+.modal-panel .gal-team .preview-grid figure,
+.modal-panel .gal-team .preview-grid figure:hover {
+  transform: none;
+  transition: none;
+}
+.modal-panel .preview-grid img,
+.modal-panel .preview-grid figure:hover img {
+  transform: none;
+  transition: none;
+}
+.modal-panel .zoomable { transition: box-shadow 0.2s ease; }
+.modal-panel .zoomable:hover { box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.7); }
+
+.zoom-view { animation: none; }
+
+/* While a project is open, take the page behind it out of rendering entirely so
+   nothing (e.g. a card banner) can flash through during fast scrolling. */
+/* While a project is open the page stays faintly visible behind it, but everything
+   that makes the browser keep separate GPU layers for the cards (blur, transforms,
+   transitions, animations) is switched off, so nothing can flash through on scroll. */
+/* No see-through overlay at all: the overlay is fully transparent and the page itself
+   is dimmed instead. If the browser ever skips a frame while scrolling the popup,
+   there is no dark layer to drop, so the page can't flash bright behind it. */
+.modal-backdrop {
+  background: transparent !important;
+  animation: none !important;
+}
+.modal-panel { animation: none !important; }
+body.modal-open .page > .container,
+body.modal-open .site-nav,
+body.modal-open .site-footer,
+body.modal-open .scroll-progress {
+  opacity: 0.12;
+}
+body.modal-open .site-nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+body.modal-open .page > .container { pointer-events: none; }
+body.modal-open .page > .container *,
+body.modal-open .page > .container *::before,
+body.modal-open .page > .container *::after {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  will-change: auto !important;
+}
+body.modal-open .project-overlay { opacity: 0 !important; }
+
+/* Mathware: logo beside its description */
+.gal-aside .preview-grid { grid-template-columns: minmax(0, 260px) 1fr; align-items: center; gap: 1.5rem; }
+.gal-aside .gal-note { font-size: 0.98rem; }
+@media (max-width: 600px) { .gal-aside .preview-grid { grid-template-columns: 1fr; } .gal-aside figure { max-width: 260px; } }
+
+/* Project grid: every card in a row is the same height, whatever its tagline length */
+#project-grid { align-items: stretch; }
+#project-grid > div { display: flex; }
+#project-grid .project-card { display: flex; flex-direction: column; height: 100%; }
+#project-grid .project-body { flex: 1; }
