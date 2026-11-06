@@ -1979,3 +1979,15 @@ body.modal-open .project-overlay { opacity: 0 !important; }
 #project-grid > div { display: flex; }
 #project-grid .project-card { display: flex; flex-direction: column; height: 100%; }
 #project-grid .project-body { flex: 1; }
+
+/* Navbar: no live blur. A backdrop blur over the animated hero canvas and the
+   scrolling page forces a costly repaint every frame, which shows as flicker.
+   A near-solid background looks the same and stays stable. */
+.site-nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(10, 10, 26, 0.97);
+}
+@media (max-width: 991px) {
+  .nav-links { background: #0a0a1a; }
+}
