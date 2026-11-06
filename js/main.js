@@ -330,3 +330,19 @@
     go(0);
   });
 })();
+
+/* ---------- Back to top ---------- */
+(function () {
+  "use strict";
+  const btn = document.querySelector("[data-back-to-top]");
+  if (!btn) return;
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    history.replaceState(null, "", location.pathname + location.search);
+    // move keyboard focus back to the top of the page
+    const brand = document.querySelector(".brand");
+    if (brand) brand.focus({ preventScroll: true });
+  });
+})();

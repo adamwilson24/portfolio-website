@@ -1991,3 +1991,36 @@ body.modal-open .project-overlay { opacity: 0 !important; }
 @media (max-width: 991px) {
   .nav-links { background: #0a0a1a; }
 }
+
+/* Back to top (home page) */
+.back-to-top {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.btt-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  background: var(--surface);
+  color: #fff;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.back-to-top:hover { color: #fff; }
+.back-to-top:hover .btt-icon {
+  background: var(--grad);
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.4);
+}
+.back-to-top:focus-visible { outline: none; }
+.back-to-top:focus-visible .btt-icon { box-shadow: 0 0 0 3px #fff; }
